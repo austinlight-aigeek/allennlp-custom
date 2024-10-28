@@ -933,7 +933,7 @@ def read_state_dict(
     `Dict[str, torch.Tensor]`
         An ordered dictionary of the state.
     """
-    state = torch.load(path, map_location=device_mapping(cuda_device))
+    state = torch.load(path, map_location=device_mapping(cuda_device), weights_only=True)
     out: Dict[str, torch.Tensor] = OrderedDict()
 
     if ignore is not None and not isinstance(ignore, list):
